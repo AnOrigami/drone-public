@@ -1,0 +1,13 @@
+MAINTAINER ltf
+
+WORKDIR /docker-test1
+#第一个点：把当前所在路径的所有文件进行复制
+#第二个点：复制到WORKDIR下的.
+COPY . .
+#ENV GOPRIVATE=gitlab.deeplycurious.cn/*
+#ENV GOPROXY=https://goproxy.cn,direct
+#RUN go env
+RUN go mod tidy
+
+
+RUN go build ./
