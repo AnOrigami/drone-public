@@ -1,0 +1,3 @@
+WORKDIR /dt
+COPY  --from=builder /docker-test1/docker-test .
+CMD ["./docker-test"]
