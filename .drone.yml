@@ -1,0 +1,16 @@
+kind: pipeline
+type: docker
+name: default
+
+clone:
+  retries: 10
+
+steps:
+  - name: build
+    image: harbor.blauwelle.com/deepies/go-build:v1.0.3
+    settings:
+      dockerfile: DockerfileBuild.scrm
+  - name: publish
+    image: plugins/docker:20.14.0
+    settings:
+      dockerfile: DockerfileRun.scrm
